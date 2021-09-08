@@ -1,0 +1,8 @@
+in ".env" file we can use port
+PORT=3001
+
+<---for windows--->
+Windows - "start": "set PORT=3001 && react-scripts start"
+
+<---for Mac OS, or Linux--->
+Mac OS && Linux - "start": "set PORT=3001 && react-scripts start"
