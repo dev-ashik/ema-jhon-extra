@@ -3,13 +3,13 @@ import { FaShoppingCart } from "react-icons/fa";
 import "./Product.css";
 
 const Product = (props) => {
-//   console.log(props);
-  const { img, name, seller, price, stock } = props.product;
+  console.log(props.product);
+  const { img, name, seller, price, stock, key } = props.product;
 
   return (
     <div className="product">
       <div className="productImage">
-        <img src={img} alt="" />
+        <img src={img} alt="" /> 
       </div>
       <div className="productName">
         <h4>{name}</h4>
