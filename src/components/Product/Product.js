@@ -1,6 +1,7 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import "./Product.css";
+import { Link } from "react-router-dom";
 
 const Product = (props) => {
   console.log(props.product);
@@ -12,7 +13,7 @@ const Product = (props) => {
         <img src={img} alt="" /> 
       </div>
       <div className="productName">
-        <h4>{name}</h4>
+        <h4><Link to={"/product/"+key}>{name}</Link></h4>
         <br />
         <p>
           <small>by: {seller}</small>
