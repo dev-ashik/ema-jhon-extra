@@ -4,8 +4,9 @@ import "./Product.css";
 import { Link } from "react-router-dom";
 
 const Product = (props) => {
-  console.log(props.product);
+  // console.log(props.showAddToCart);
   const { img, name, seller, price, stock, key } = props.product;
+  const showAddToCart = props.showAddToCart;
 
   return (
     <div className="product">
@@ -24,10 +25,10 @@ const Product = (props) => {
         <p>
           <small>Only{stock} left in stock - Order soon</small>
         </p>
-        <button className="mainButton" onClick={() => props.handleAddProduct(props.product)}>
+        {showAddToCart && <button className="mainButton" onClick={() => props.handleAddProduct(props.product)}>
           <FaShoppingCart />
           add to cart
-        </button>
+        </button>}
       </div>
     </div>
   );
