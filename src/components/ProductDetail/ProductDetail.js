@@ -5,7 +5,9 @@ import Product from '../Product/Product';
 
 const ProductDetail = () => {
     const {productKey} = useParams();
-    // useParam get data from Link
+    // console.log(productKey);
+    // useParam get dainamic data from 'Link to'
+
     const product = fakeData.find(pd => pd.key === productKey)
     // console.log(product);
 
