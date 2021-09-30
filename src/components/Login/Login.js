@@ -1,10 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
-// import {handleSignOut, handleGoogleSignIn} from "./LoginManager";
-// import {handleGoogleSignIn} from "./LoginManager";
-import { initializeApp } from "@firebase/app";
-import firebaseConfig from "./firebase.config";
 import {
   createUserWithEmailPassword,
   handleGoogleSignIn,
@@ -96,7 +92,7 @@ function Login() {
       {user.isSignedIn ? (
         <button onClick={signOut}>Sign out</button>
       ) : (
-        <button onClick={GoogleSignIn}>Sign in</button>
+        <button onClick={GoogleSignIn}>Sign in with google</button>
       )}
       {user.isSignedIn && (
         <div>
