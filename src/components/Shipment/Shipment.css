@@ -14,3 +14,11 @@
 .error {
     color: red;
 }
+
+.shipmentPage {
+    display: flex;
+}
+
+.shipmentPage_userDetails, .shipmentPage_payment {
+    width: 50%;
+}

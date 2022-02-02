@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from "../../utilities/databaseManager";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import Cart from "../../components/Cart/Cart";
