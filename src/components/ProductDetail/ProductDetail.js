@@ -13,7 +13,7 @@ const ProductDetail = () => {
     // console.log(product);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/product/'+productKey)
+        fetch('https://ema-jhon-extra-server.herokuapp.com/product/'+productKey)
         .then(res => res.json())
         .then(data => setProduct(data));
     }, [productKey])
