@@ -47,6 +47,9 @@ const Shop = () => {
   return (
     <div className="twinContainer">
       <div className="productContainer">
+        {
+          products.length === 0 && <p>loading...</p>
+        }
         {products.map((product) => (
           <Product
             key={product.key}
