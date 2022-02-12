@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import fakeData from "../../fakeData";
 import {Link} from 'react-router-dom';
 import { addToDatabaseCart, getDatabaseCart } from "../../utilities/databaseManager";
 import Cart from "../Cart/Cart";
@@ -7,19 +6,28 @@ import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
-  const first10 = fakeData.slice(0, 10);
-  const [products, setProduct] = useState(first10);
+  // const first10 = fakeData.slice(0, 10);
+  const [products, setProduct] = useState([]);
   const [cart, setCart] = useState([]);
+
+  useEffect(()=>{
+    fetch('https://ema-jhon-extra-server.herokuapp.com/products')
+    .then(res => res.json())
+    .then(data => setProduct(data))
+  }, [])
 
   useEffect(()=>{
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart)
-    const previusCart = productKeys.map( existingKey => {
-      const product = fakeData.find(pd => pd.key === existingKey);
-      product.quantity = savedCart[existingKey];
-      return product;
+    // console.log(products, productKeys);
+    fetch('https://ema-jhon-extra-server.herokuapp.com/productsByKeys', {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(productKeys)
     })
-    setCart(previusCart)
+    .then(res => res.json())
+    .then(data => setCart(data))
+    
   },[])
 
 
