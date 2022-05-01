@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom';
 import { addToDatabaseCart, getDatabaseCart } from "../../utilities/databaseManager";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
+import loadingGif from '../../images/loading.gif';
 import "./Shop.css";
 
 const Shop = () => {
   // const first10 = fakeData.slice(0, 10);
   const [products, setProduct] = useState([]);
   const [cart, setCart] = useState([]);
+  document.title = 'Shop More';
 
   useEffect(()=>{
     fetch('https://ema-jhon-extra-server.herokuapp.com/products')
@@ -56,7 +58,7 @@ const Shop = () => {
     <div className="twinContainer">
       <div className="productContainer">
         {
-          products.length === 0 && <p>loading...</p>
+          products.length === 0 && <div style={{textAlign: 'center'}}><img src={loadingGif} alt="loading..." height='200' width='200'/></div>
         }
         {products.map((product) => (
           <Product
